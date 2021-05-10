@@ -16,4 +16,5 @@ public class CensusAnalyserTest {
             e.printStackTrace();
         }
     }
+
 }
