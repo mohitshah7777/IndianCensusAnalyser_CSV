@@ -22,6 +22,8 @@ public class CensusAnalyser {
             return (int) StreamSupport.stream(censusCSVIterable.spliterator(), false).count();
         } catch (IOException exception) {
             throw new CensusAnalyserException(exception.getMessage(), CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        } catch (RuntimeException exception) {
+        throw new CensusAnalyserException(exception.getMessage(), CensusAnalyserException.ExceptionType.WRONG_FILE_DELIMITER);
         }
     }
 
