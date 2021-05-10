@@ -6,6 +6,7 @@ import org.junit.Test;
 public class CensusAnalyserTest {
     public static final String INDIAN_STATE_CENSUS_FILE = "src\\main\\resources\\IndianStateCensusData.csv";
     public static final String INDIAN_STATE_CODE_FILE = "src\\main\\resources\\IndiaStateCode.csv";
+    public static final String WRONG_CSV_FILE = "src\\main\\resources\\IndiaStateCode";
 
     //UC-1
     @Test
@@ -27,6 +28,16 @@ public class CensusAnalyserTest {
             Assert.assertEquals(37, count);
         } catch (CensusAnalyserException e) {
             e.printStackTrace();
+        }
+    }
+
+    //TC - 1.2
+    @Test
+    public void givenIndiaStateCensusFile_WithIncorrectFile_ShouldThrowException() {
+        try {
+            CensusAnalyser.loadCensusData(WRONG_CSV_FILE);
+        } catch (CensusAnalyserException e) {
+            Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM,e.type);
         }
     }
 }
