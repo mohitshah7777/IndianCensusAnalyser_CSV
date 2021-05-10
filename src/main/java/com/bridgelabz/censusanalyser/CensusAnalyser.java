@@ -24,4 +24,5 @@ public class CensusAnalyser {
             throw new CensusAnalyserException(exception.getMessage(), CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
         }
     }
+
 }
